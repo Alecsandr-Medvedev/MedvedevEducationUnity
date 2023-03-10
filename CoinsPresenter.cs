@@ -3,18 +3,18 @@ using UnityEngine.UI;
 
 public class CoinsPresenter : MonoBehaviour
 {
-    Coins coins;
+    private Coins _coins;
     [SerializeField] private Text _render;
     [SerializeField] private Animator _animator;
     private void Awake()
     {
-        coins.setAmount(PlayerPrefs.GetInt("Coins", 0));
+        _coins.setAmount(PlayerPrefs.GetInt("Coins", 0));
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Coin"))
-            draw(coins.OnPickupCoin());
+            draw(_coins.OnPickupCoin());
     }
 
     private void draw(int count)
