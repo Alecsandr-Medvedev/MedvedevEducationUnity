@@ -6,11 +6,7 @@ public class CoinsPresenter : MonoBehaviour
     private Coins _coins;
     [SerializeField] private Text _render;
     [SerializeField] private Animator _animator;
-    private void Awake()
-    {
-        _coins.setAmount(PlayerPrefs.GetInt("Coins", 0));
-    }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Contains("Coin"))
